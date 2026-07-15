@@ -74,21 +74,20 @@
 </head>
 <body class="min-h-screen flex flex-col bg-surface text-on-surface grid-bg">
     <!-- TopNavBar -->
-    <header class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-xl border-b border-white/10 flex items-center justify-between px-6 lg:px-12 h-20 shadow-[0_0_15px_rgba(32,38,130,0.4)]">
-        <div class="flex items-center gap-4">
-            <div class="w-10 h-10 flex items-center justify-center bg-primary-container rounded-lg">
-                <span class="material-symbols-outlined text-primary text-2xl" style="font-variation-settings: 'FILL' 1;">shield</span>
-            </div>
+    <header class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-xl border-b border-white/10 shadow-[0_0_15px_rgba(32,38,130,0.4)] h-16 flex items-center justify-between px-xl">
+        <div class="flex items-center gap-sm">
+            <img src="assets\centryLogo_noBG.png" class="h-10 w-auto" alt="Centry Shield Logo">
             <div class="flex flex-col">
-                <span class="font-headline text-2xl font-bold text-primary tracking-tight">Centry</span>
-                <span class="font-mono text-[10px] uppercase tracking-widest text-outline leading-none">Cybersecurity for the backbone of the Philippine economy</span>
+                <span class="font-headline-md text-headline-md font-bold text-primary tracking-tight">Centry</span>
+                <span class="font-label-sm text-label-sm text-on-surface-variant hidden md:block opacity-70">Cybersecurity for the backbone of the Philippine economy</span>
             </div>
         </div>
-        <button class="flex items-center gap-2 text-on-surface-variant hover:text-primary transition-all duration-200 font-mono text-sm active:scale-95" onclick="window.history.back()">
-            <span class="material-symbols-outlined text-lg">arrow_back</span>
-            BACK
+        <button class="flex items-center gap-xs text-on-surface-variant hover:text-primary transition-colors duration-200 group active:scale-95" onclick="window.history.back()">
+            <span class="material-symbols-outlined text-[20px] group-hover:-translate-x-1 transition-transform">arrow_back</span>
+            <span class="font-label-md text-label-md uppercase tracking-wider">Back</span>
         </button>
     </header>
+
 
     <main class="flex-grow flex items-center justify-center p-6 pt-32 pb-20 relative">
         <div class="w-full max-w-4xl relative z-10">
@@ -205,13 +204,14 @@
                     </div>
 
                     <div class="flex flex-col items-center gap-6 pt-6">
-                        <button class="w-full md:w-auto md:min-w-[280px] px-10 py-5 bg-primary-container text-primary font-bold rounded-xl border border-primary/30 shadow-[0_0_15px_rgba(32,38,130,0.4)] hover:bg-primary-container/80 transition-all duration-300 active:scale-95 flex items-center justify-center gap-3 group submit-glow" id="submitBtn" type="submit">
+                        <!-- This button only redirects to dashboad. This will not collect user inputs yet-->
+                        <button class="w-full md:w-auto md:min-w-[280px] px-10 py-5 bg-primary-container text-primary font-bold rounded-xl border border-primary/30 shadow-[0_0_15px_rgba(32,38,130,0.4)] hover:bg-primary-container/80 transition-all duration-300 active:scale-95 flex items-center justify-center gap-3 group submit-glow" id="submitBtn" type="submit" onclick="window.location.href='dashboard.html';"> 
                             <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">bolt</span>
                             <span class="font-headline text-xl">Establish Connection</span>
                         </button>
                         <p class="font-body text-on-surface-variant">
                             Already verified? 
-                            <a class="text-primary hover:underline font-semibold transition-all ml-1" href="#">Sign In</a>
+                            <a class="text-primary hover:underline font-semibold transition-all ml-1" href="signin.html">Sign In</a>
                         </p>
                     </div>
                 </form>

@@ -124,7 +124,7 @@
     <!-- Top AppBar -->
     <header class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-xl border-b border-white/10 shadow-[0_0_15px_rgba(32,38,130,0.4)] h-16 flex items-center justify-between px-xl">
         <div class="flex items-center gap-sm">
-            <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCoYazM7XgNWdKPCxH2c-d06qcgVAGMLPp-WGsixM-AeBvRTOpOn8AdOu1EwnvbFGST3RorxPYsanKnEbGUR1llhYQWwwkYyEYnmjTpjjG3Gk4AnPhfhtMNus2RI9l2gNS_39oCJM_Wast-3KqZK108oIayOodXTZh18c4JU-x7STrQWlmPUW7gIo2bbNTPC8a7rhhl1USxIFN2va999pJHAtBPEDNFs_DMVhPDnnQTMztW7ehVD_gDzkVKtaO2VWAygMME1cl6Xbs" class="h-10 w-auto" alt="Centry Shield Logo">
+            <img src="assets\centryLogo_noBG.png" class="h-10 w-auto" alt="Centry Shield Logo">
             <div class="flex flex-col">
                 <span class="font-headline-md text-headline-md font-bold text-primary tracking-tight">Centry</span>
                 <span class="font-label-sm text-label-sm text-on-surface-variant hidden md:block opacity-70">Cybersecurity for the backbone of the Philippine economy</span>
@@ -190,7 +190,7 @@
             <div class="mt-lg text-center">
                 <p class="font-body-md text-on-surface-variant">
                     New to Centry? 
-                    <a href="#" class="text-primary hover:text-tertiary font-medium transition-colors ml-1 underline-offset-4 hover:underline">Register Here</a>
+                    <a href="register.html" class="text-primary hover:text-tertiary font-medium transition-colors ml-1 underline-offset-4 hover:underline">Register Here</a>
                 </p>
             </div>
         </div>
@@ -252,10 +252,16 @@
             e.preventDefault();
             submitBtn.innerHTML = '<span class="material-symbols-outlined animate-spin">sync</span> VALIDATING...';
             setTimeout(() => {
-                submitBtn.innerHTML = 'ACCESS GRANTED <span class="material-symbols-outlined">check_circle</span>';
+                submitBtn.innerHTML = 'WELCOME  <span class="material-symbols-outlined">check_circle</span>';
                 submitBtn.classList.remove('bg-primary-container');
                 submitBtn.classList.add('bg-green-600', 'border-green-400');
+                //window.location.href="dashboard.html";
             }, 1500);
+            setTimeout(() => {
+                window.location.href="dashboard.html";
+            }, 3000);
+            
+        
         });
     </script>
 </body>
