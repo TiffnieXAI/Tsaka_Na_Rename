@@ -1,221 +1,231 @@
 <!DOCTYPE html><html class="dark" lang="en"><head>
-<meta charset="utf-8">
-<meta content="width=device-width, initial-scale=1.0" name="viewport">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@500;700&amp;family=Geist:wght@600;700&amp;display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=block" rel="stylesheet">
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<script id="tailwind-config">
-        try {
-            tailwind.config = {
-                darkMode: "class",
-                theme: {
-                    extend: {
-                        "colors": {
-                            "tertiary-fixed": "#eaddff",
-                            "on-secondary-fixed-variant": "#454748",
-                            "surface-dim": "#0b1326",
-                            "surface-container": "#171f33",
-                            "secondary-fixed-dim": "#c6c6c7",
-                            "on-error": "#690005",
-                            "secondary-fixed": "#e3e2e3",
-                            "success-glow": "#4ade80",
-                            "radar-glow": "rgba(190, 194, 255, 0.15)",
-                            "on-tertiary-fixed": "#230e48",
-                            "on-secondary-container": "#b5b5b6",
-                            "on-tertiary-fixed-variant": "#4f3c76",
-                            "surface-container-highest": "#2d3449",
-                            "tertiary-fixed-dim": "#d2bbff",
-                            "inverse-primary": "#555a90",
-                            "inverse-surface": "#dbe2fd",
-                            "surface-variant": "#2d3449",
-                            "surface-bright": "#31394e",
-                            "primary-fixed": "#e0e0ff",
-                            "surface-container-lowest": "#060d20",
-                            "on-secondary-fixed": "#1a1c1d",
-                            "on-secondary": "#2f3132",
-                            "primary-container": "#bec2ff",
-                            "secondary-container": "#454748",
-                            "surface-glass": "rgba(23, 31, 51, 0.4)",
-                            "surface": "#0b1326",
-                            "outline": "#91909a",
-                            "inverse-on-surface": "#283044",
-                            "primary-fixed-dim": "#bec2ff",
-                            "on-primary": "#272b5e",
-                            "on-surface-variant": "#c7c5d0",
-                            "on-error-container": "#ffdad6",
-                            "secondary": "#c6c6c7",
-                            "on-surface": "#dbe2fd",
-                            "outline-variant": "#46464f",
-                            "error": "#ffb4ab",
-                            "surface-container-high": "#222a3e",
-                            "tertiary": "#ebddff",
-                            "surface-obsidian": "#0b1326",
-                            "on-primary-fixed": "#111548",
-                            "on-tertiary": "#38255e",
-                            "surface-container-low": "#131b2e",
-                            "background": "#0b1326",
-                            "surface-tint": "#bec2ff",
-                            "on-tertiary-container": "#5b4883",
-                            "on-primary-fixed-variant": "#3e4276",
-                            "primary": "#e0e0ff",
-                            "tertiary-container": "#d3bcff",
-                            "on-background": "#dbe2fd",
-                            "alert-critical": "#ffb4ab",
-                            "on-primary-container": "#494e83",
-                            "error-container": "#93000a"
-                        },
-                        "borderRadius": {
-                            "DEFAULT": "0.125rem",
-                            "lg": "0.25rem",
-                            "xl": "0.5rem",
-                            "full": "0.75rem"
-                        },
-                        "spacing": {
-                            "base": "4px",
-                            "md": "24px",
-                            "sidebar": "280px",
-                            "sm": "16px",
-                            "lg": "32px",
-                            "xl": "48px",
-                            "gutter": "20px",
-                            "xs": "8px"
-                        },
-                        "fontFamily": {
-                            "label-sm": ["JetBrains Mono"],
-                            "label-md": ["JetBrains Mono"],
-                            "body-md": ["Inter"],
-                            "headline-md": ["Geist"],
-                            "display": ["Geist"],
-                            "headline-lg": ["Geist"],
-                            "micro-label": ["JetBrains Mono"]
-                        }
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Centry | Connect Business</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@500;700&amp;family=Geist:wght@400;600;700;800&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=block" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <style>
+        body {
+            background-color: #0b1326;
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+        }
+        .glass-panel {
+            background: rgba(23, 31, 51, 0.4);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+        }
+        .input-glow:focus {
+            box-shadow: 0 0 15px rgba(32, 38, 130, 0.6);
+            border-color: #bec2ff;
+        }
+        .submit-glow {
+            box-shadow: 0 0 20px rgba(32, 38, 130, 0.4);
+        }
+        .submit-glow:hover {
+            box-shadow: 0 0 30px rgba(32, 38, 130, 0.6);
+        }
+        .grid-bg {
+            background-image:
+                linear-gradient(rgba(32, 38, 130, 0.1) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(32, 38, 130, 0.1) 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+    </style>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary": "#bec2ff",
+                        "primary-container": "#202682",
+                        "on-surface": "#dae2fd",
+                        "on-surface-variant": "#c7c5d4",
+                        "surface": "#0b1326",
+                        "surface-container-lowest": "#060e20",
+                        "surface-container-low": "#131b2e",
+                        "outline-variant": "#464652",
+                        "outline": "#908f9d",
+                        "error": "#ffb4ab"
+                    },
+                    "borderRadius": {
+                        "lg": "0.5rem",
+                        "xl": "0.75rem"
+                    },
+                    "spacing": {
+                        "sm": "16px",
+                        "md": "24px",
+                        "lg": "32px",
+                        "xl": "48px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Geist"],
+                        "body": ["Inter"],
+                        "mono": ["JetBrains Mono"]
                     }
                 }
             }
-        } catch (_e) {}
+        }
     </script>
-<style>
-        .glass-card { background: rgba(23, 31, 51, 0.4); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid rgba(255, 255, 255, 0.1); box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37); }
-    </style>
 </head>
-<body class="min-h-screen flex flex-col font-body-md" style="background-color: #0b1326; font-family: 'Inter', sans-serif; overflow-x: hidden;">
+<body class="min-h-screen flex flex-col bg-surface text-on-surface grid-bg">
+
 <!-- TopNavBar -->
-<header class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-xl border-b border-white/10 flex items-center justify-between px-xl h-16 shadow-[0_0_15px_rgba(32,38,130,0.4)]">
-<div class="flex items-center gap-xs">
-<div class="w-8 h-8 flex items-center justify-center bg-primary-container rounded-lg">
-<span class="material-symbols-outlined text-primary text-xl" style="font-variation-settings: &quot;FILL&quot; 1;">shield</span>
-</div>
-<div class="flex flex-col ml-1">
-<span class="font-headline-md text-headline-md font-bold text-primary tracking-tight leading-none">Centry</span>
-<span class="text-[8px] text-on-surface-variant font-medium tracking-tighter uppercase leading-none mt-0.5">Cybersecurity for the backbone of the Philippine economy</span>
-</div>
-</div>
-<button class="bg-primary-container text-primary px-lg py-xs rounded font-label-md font-bold hover:brightness-110 active:scale-95 transition-all border border-primary/30" onclick="window.history.back()">
-<span class="material-symbols-outlined text-base">arrow_back</span>
-            Back
-        </button>
+<header class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-xl border-b border-white/10 shadow-[0_0_15px_rgba(32,38,130,0.4)] h-16 flex items-center justify-between px-xl">
+    <div class="flex items-center gap-sm">
+        <img src="assets\centryLogo_noBG.png" class="h-10 w-auto" alt="Centry Shield Logo">
+        <div class="flex flex-col">
+            <span class="font-headline-md text-headline-md font-bold text-primary tracking-tight">Centry</span>
+            <span class="font-label-sm text-label-sm text-on-surface-variant hidden md:block opacity-70">Cybersecurity for the backbone of the Philippine economy</span>
+        </div>
+    </div>
+    <button class="flex items-center gap-xs text-on-surface-variant hover:text-primary transition-colors duration-200 group active:scale-95" onclick="window.history.back()">
+        <span class="material-symbols-outlined text-[20px] group-hover:-translate-x-1 transition-transform">arrow_back</span>
+        <span class="font-label-md text-label-md uppercase tracking-wider">Back</span>
+    </button>
 </header>
+
 <!-- Main Content -->
-<main class="flex-grow flex items-center justify-center py-xl px-md relative">
-<div class="absolute inset-0 z-0 pointer-events-none opacity-20" style="background-image: radial-gradient(circle at 2px 2px, rgba(255,255,255,0.05) 1px, transparent 0); background-size: 40px 40px;"></div>
-<div class="relative z-10 w-full max-w-[640px]">
-<div class="glass-card p-xl rounded-xl border border-white/10 flex flex-col items-center text-center">
-<div class="mb-xl text-center w-full">
-<h1 class="font-display text-headline-lg text-primary mb-xs">Connect Your Business</h1>
-<p class="text-on-surface-variant font-body-md max-w-md mx-auto">Link your business nodes to Centry for real-time protection and monitoring.</p>
-</div>
-<div class="mb-xl w-full max-w-md mx-auto">
-<label class="block font-label-md text-on-surface-variant mb-xs">Enter business email</label>
-<div class="relative group">
-<input class="w-full bg-surface-container-lowest border border-outline-variant/30 rounded-lg px-md py-sm text-on-surface placeholder:text-outline-variant focus:ring-1 focus:ring-primary focus:border-primary transition-all outline-none" placeholder="admin@enterprise.com" type="email">
-<div class="absolute right-3 top-1/2 -translate-y-1/2 flex items-center">
-<span class="material-symbols-outlined text-outline-variant">alternate_email</span>
-</div>
-</div>
-</div>
-<div class="w-full">
-<div class="flex items-center border-b-2 border-white/10 pb-sm mb-lg w-full">
-<h2 class="font-headline-md text-on-surface">Connect to E-Commerce Platform</h2>
-</div>
-<div class="grid gap-md">
-<div class="flex items-center justify-between p-sm rounded-lg bg-surface-container-lowest border border-outline-variant/30 transition-all group">
-<div class="flex items-center gap-md">
-<div class="w-10 h-10 rounded-lg bg-surface-container-highest flex items-center justify-center text-primary border border-white/5">
-<span class="material-symbols-outlined">shopping_bag</span>
-</div>
-<span class="font-body-md font-semibold text-on-surface">Shopee</span>
-</div>
-<button class="bg-primary-container text-primary px-lg py-xs rounded font-label-md font-bold hover:brightness-110 active:scale-95 transition-all border border-primary/30">Connect</button>
-</div>
-<div class="flex items-center justify-between p-sm rounded-lg bg-surface-container-lowest border border-outline-variant/30 transition-all group">
-<div class="flex items-center gap-md">
-<div class="w-10 h-10 rounded-lg bg-surface-container-highest flex items-center justify-center text-primary border border-white/5">
-<span class="material-symbols-outlined">storefront</span>
-</div>
-<span class="font-body-md font-semibold text-on-surface">Lazada</span>
-</div>
-<button class="bg-primary-container text-primary px-lg py-xs rounded font-label-md font-bold hover:brightness-110 active:scale-95 transition-all border border-primary/30">Connect</button>
-</div>
-<div class="flex items-center justify-between p-sm rounded-lg bg-surface-container-lowest border border-outline-variant/30 transition-all group">
-<div class="flex items-center gap-md">
-<div class="w-10 h-10 rounded-lg bg-surface-container-highest flex items-center justify-center text-primary border border-white/5">
-<span class="material-symbols-outlined">package_2</span>
-</div>
-<span class="font-body-md font-semibold text-on-surface">Temu</span>
-</div>
-<button class="bg-primary-container text-primary px-lg py-xs rounded font-label-md font-bold hover:brightness-110 active:scale-95 transition-all border border-primary/30">Connect</button>
-</div>
-<div class="flex items-center justify-between p-sm rounded-lg bg-surface-container-lowest border border-outline-variant/30 transition-all group">
-<div class="flex items-center gap-md">
-<div class="w-10 h-10 rounded-lg bg-surface-container-highest flex items-center justify-center text-primary border border-white/5">
-<span class="material-symbols-outlined">checkroom</span>
-</div>
-<span class="font-body-md font-semibold text-on-surface">Shein</span>
-</div>
-<button class="bg-primary-container text-primary px-lg py-xs rounded font-label-md font-bold hover:brightness-110 active:scale-95 transition-all border border-primary/30">Connect</button>
-</div>
-<div class="flex items-center justify-between p-sm rounded-lg bg-surface-container-lowest border border-outline-variant/30 transition-all group">
-<div class="flex items-center gap-md">
-<div class="w-10 h-10 rounded-lg bg-surface-container-highest flex items-center justify-center text-primary border border-white/5">
-<span class="material-symbols-outlined">music_video</span>
-</div>
-<span class="font-body-md font-semibold text-on-surface">TikTok Shop</span>
-</div>
-<button class="bg-primary-container text-primary px-lg py-xs rounded font-label-md font-bold hover:brightness-110 active:scale-95 transition-all border border-primary/30">Connect</button>
-</div>
-</div>
-</div>
-<div class="mt-xl border-t border-white/5 pt-lg w-full">
-<p class="font-label-sm text-label-sm text-on-surface-variant italic text-center">
-                        "Cybersecurity for the backbone of the Philippine economy"
-                    </p>
-</div>
-</div>
-</div>
+<main class="flex-grow flex items-center justify-center p-6 pt-32 pb-20 relative">
+    <div class="w-full max-w-4xl relative z-10">
+        <div class="glass-panel p-8 lg:p-12 rounded-xl border border-white/10 flex flex-col items-center">
+
+            <!-- Page Header -->
+            <div class="text-center mb-10 w-full">
+                <h1 class="font-headline text-4xl lg:text-5xl font-bold text-primary mb-2">Connect Your Business</h1>
+                <p class="font-body text-lg text-on-surface-variant max-w-lg mx-auto">Link your business nodes to Centry for real-time protection and monitoring.</p>
+            </div>
+
+            <!-- Input Section -->
+            <div class="mb-10 w-full max-w-lg">
+                <label class="block font-mono text-xs text-on-surface-variant uppercase tracking-wider mb-2">Business Email Address <span class="text-error">*</span></label>
+                <div class="relative">
+                    <input class="w-full bg-surface-container-lowest border border-outline-variant/50 rounded-lg px-4 py-3 pr-10 text-on-surface focus:outline-none input-glow transition-all font-body" placeholder="admin@enterprise.com" type="email">
+                    <div class="absolute right-3 top-1/2 -translate-y-1/2 flex items-center pointer-events-none">
+                        <span class="material-symbols-outlined text-outline">alternate_email</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Integration Section -->
+            <div class="w-full space-y-6">
+                <div class="flex items-center gap-3 pb-2 border-b border-white/5 w-full">
+                    <span class="material-symbols-outlined text-primary">storefront</span>
+                    <h3 class="font-headline text-xl text-on-surface font-semibold">Connect to E-Commerce Platform</h3>
+                </div>
+
+                <div class="grid grid-cols-1 gap-4">
+
+                    <!-- Shopee -->
+                    <div class="flex items-center justify-between p-4 rounded-xl bg-surface-container-lowest border border-outline-variant/30 transition-all hover:border-outline-variant/60">
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 rounded-lg bg-primary-container/20 flex items-center justify-center text-primary border border-primary/20">
+                                <span class="material-symbols-outlined text-2xl">shopping_bag</span>
+                            </div>
+                            <span class="font-body text-lg font-semibold text-on-surface">Shopee</span>
+                        </div>
+                        <button class="px-6 py-2.5 bg-primary-container text-primary font-bold font-headline rounded-lg border border-primary/30 shadow-[0_0_10px_rgba(32,38,130,0.3)] hover:bg-primary-container/80 transition-all active:scale-95 flex items-center gap-2 submit-glow">
+                            <span>Connect</span>
+                            <span class="material-symbols-outlined text-sm">arrow_forward</span>
+                        </button>
+                    </div>
+
+                    <!-- Lazada -->
+                    <div class="flex items-center justify-between p-4 rounded-xl bg-surface-container-lowest border border-outline-variant/30 transition-all hover:border-outline-variant/60">
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 rounded-lg bg-primary-container/20 flex items-center justify-center text-primary border border-primary/20">
+                                <span class="material-symbols-outlined text-2xl">storefront</span>
+                            </div>
+                            <span class="font-body text-lg font-semibold text-on-surface">Lazada</span>
+                        </div>
+                        <button class="px-6 py-2.5 bg-primary-container text-primary font-bold font-headline rounded-lg border border-primary/30 shadow-[0_0_10px_rgba(32,38,130,0.3)] hover:bg-primary-container/80 transition-all active:scale-95 flex items-center gap-2 submit-glow">
+                            <span>Connect</span>
+                            <span class="material-symbols-outlined text-sm">arrow_forward</span>
+                        </button>
+                    </div>
+
+                    <!-- Temu -->
+                    <div class="flex items-center justify-between p-4 rounded-xl bg-surface-container-lowest border border-outline-variant/30 transition-all hover:border-outline-variant/60">
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 rounded-lg bg-primary-container/20 flex items-center justify-center text-primary border border-primary/20">
+                                <span class="material-symbols-outlined text-2xl">package_2</span>
+                            </div>
+                            <span class="font-body text-lg font-semibold text-on-surface">Temu</span>
+                        </div>
+                        <button class="px-6 py-2.5 bg-primary-container text-primary font-bold font-headline rounded-lg border border-primary/30 shadow-[0_0_10px_rgba(32,38,130,0.3)] hover:bg-primary-container/80 transition-all active:scale-95 flex items-center gap-2 submit-glow">
+                            <span>Connect</span>
+                            <span class="material-symbols-outlined text-sm">arrow_forward</span>
+                        </button>
+                    </div>
+
+                    <!-- Shein -->
+                    <div class="flex items-center justify-between p-4 rounded-xl bg-surface-container-lowest border border-outline-variant/30 transition-all hover:border-outline-variant/60">
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 rounded-lg bg-primary-container/20 flex items-center justify-center text-primary border border-primary/20">
+                                <span class="material-symbols-outlined text-2xl">checkroom</span>
+                            </div>
+                            <span class="font-body text-lg font-semibold text-on-surface">Shein</span>
+                        </div>
+                        <button class="px-6 py-2.5 bg-primary-container text-primary font-bold font-headline rounded-lg border border-primary/30 shadow-[0_0_10px_rgba(32,38,130,0.3)] hover:bg-primary-container/80 transition-all active:scale-95 flex items-center gap-2 submit-glow">
+                            <span>Connect</span>
+                            <span class="material-symbols-outlined text-sm">arrow_forward</span>
+                        </button>
+                    </div>
+
+                    <!-- TikTok Shop -->
+                    <div class="flex items-center justify-between p-4 rounded-xl bg-surface-container-lowest border border-outline-variant/30 transition-all hover:border-outline-variant/60">
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 rounded-lg bg-primary-container/20 flex items-center justify-center text-primary border border-primary/20">
+                                <span class="material-symbols-outlined text-2xl">music_video</span>
+                            </div>
+                            <span class="font-body text-lg font-semibold text-on-surface">TikTok Shop</span>
+                        </div>
+                        <button class="px-6 py-2.5 bg-primary-container text-primary font-bold font-headline rounded-lg border border-primary/30 shadow-[0_0_10px_rgba(32,38,130,0.3)] hover:bg-primary-container/80 transition-all active:scale-95 flex items-center gap-2 submit-glow">
+                            <span>Connect</span>
+                            <span class="material-symbols-outlined text-sm">arrow_forward</span>
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Action Section / Redirect to Dashboard -->
+            <div class="mt-10 pt-6 border-t border-white/5 w-full flex justify-center">
+                <button class="w-full md:w-auto md:min-w-[320px] px-10 py-4 bg-primary-container text-primary font-bold rounded-xl border border-primary/30 shadow-[0_0_15px_rgba(32,38,130,0.4)] hover:bg-primary-container/80 transition-all duration-300 active:scale-95 flex items-center justify-center gap-3 group submit-glow" onclick="window.location.href='dashboard.html';">
+                    <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">dashboard</span>
+                    <span class="font-headline text-lg">Continue to Dashboard</span>
+                </button>
+            </div>
+
+            <!-- Tagline Footer inside panel -->
+            <div class="mt-8 text-center">
+                <p class="font-mono text-xs text-on-surface-variant italic opacity-70">
+                    "Cybersecurity for the backbone of the Philippine economy"
+                </p>
+            </div>
+        </div>
+    </div>
 </main>
+
 <!-- Footer -->
 <footer class="w-full bg-surface-container-lowest border-t border-outline-variant flex flex-col md:flex-row justify-between items-center px-xl py-lg gap-md relative z-10">
-<div class="flex flex-col items-center md:items-start gap-xs">
-<div class="font-headline-sm text-[20px] font-black text-on-surface tracking-tighter">SAGE</div>
-<p class="font-label-sm text-label-sm text-on-surface-variant text-center md:text-left">
-                © 2024 SAGE. Cybersecurity for the backbone of the Philippine economy.
-            </p>
-</div>
-<div class="flex gap-lg">
-<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors duration-200" href="#">About Us</a>
-<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors duration-200" href="#">Contact</a>
-<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors duration-200" href="#">Terms</a>
-<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors duration-200" href="#">Cookie Policy</a>
-</div>
+    <div class="flex flex-col items-center md:items-start gap-xs">
+        <div class="font-headline-sm text-[20px] font-black text-on-surface tracking-tighter">SAGE</div>
+        <p class="font-label-sm text-label-sm text-on-surface-variant text-center md:text-left">
+            © 2024 SAGE. Cybersecurity for the backbone of the Philippine economy.
+        </p>
+    </div>
+    <div class="flex gap-lg">
+        <a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors duration-200" href="#">About Us</a>
+        <a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors duration-200" href="#">Contact</a>
+        <a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors duration-200" href="#">Terms</a>
+        <a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors duration-200" href="#">Cookie Policy</a>
+    </div>
 </footer>
-<script>
-        const input = document.querySelector('input');
-        const inputContainer = input.parentElement;
-        input.addEventListener('focus', () => {
-            inputContainer.style.boxShadow = '0 0 15px rgba(224, 224, 255, 0.05)';
-        });
-        input.addEventListener('blur', () => {
-            inputContainer.style.boxShadow = 'none';
-        });
-    </script>
-</body></html>
+
+</body>
+</html>
