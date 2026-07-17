@@ -240,6 +240,8 @@
         inputs[0].focus();
     };
     verifyBtn.addEventListener('click', () => {
+
+        // TODO: Implement actual OTP verification logic here. For now, we simulate a successful verification.
         if (!verifyBtn.disabled) {
             verifyBtn.innerHTML = '<span class="material-symbols-outlined animate-spin">sync</span> Validating...';
             setTimeout(() => {
@@ -247,6 +249,10 @@
                 verifyBtn.classList.remove('bg-primary-container');
                 verifyBtn.classList.add('bg-green-600', 'border-green-400');
             }, 1500);
+            
+            setTimeout(() => {
+                window.location.href = "connect.html";
+            }, 3000);
         }
     });
 </script>

@@ -1,4 +1,6 @@
-<!DOCTYPE html><html class="dark" lang="en"><head>
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <title>Centry | Connect Business</title>
@@ -34,13 +36,38 @@
                 linear-gradient(90deg, rgba(32, 38, 130, 0.1) 1px, transparent 1px);
             background-size: 40px 40px;
         }
+        /* Fix for disabled button styling */
+        button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+        /* Fix for connecting state */
+        .connecting {
+            opacity: 0.8;
+            cursor: wait;
+        }
+        /* Fix for connected state */
+        .bg-green-600 {
+            background-color: #16a34a !important;
+        }
+        .border-green-400 {
+            border-color: #4ade80 !important;
+        }
+        /* Animation for spinning icon */
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        .animate-spin {
+            animation: spin 1s linear infinite;
+        }
     </style>
     <script id="tailwind-config">
         tailwind.config = {
             darkMode: "class",
             theme: {
                 extend: {
-                    "colors": {
+                    colors: {
                         "primary": "#bec2ff",
                         "primary-container": "#202682",
                         "on-surface": "#dae2fd",
@@ -52,17 +79,17 @@
                         "outline": "#908f9d",
                         "error": "#ffb4ab"
                     },
-                    "borderRadius": {
+                    borderRadius: {
                         "lg": "0.5rem",
                         "xl": "0.75rem"
                     },
-                    "spacing": {
+                    spacing: {
                         "sm": "16px",
                         "md": "24px",
                         "lg": "32px",
                         "xl": "48px"
                     },
-                    "fontFamily": {
+                    fontFamily: {
                         "headline": ["Geist"],
                         "body": ["Inter"],
                         "mono": ["JetBrains Mono"]
@@ -77,7 +104,7 @@
 <!-- TopNavBar -->
 <header class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-xl border-b border-white/10 shadow-[0_0_15px_rgba(32,38,130,0.4)] h-16 flex items-center justify-between px-xl">
     <div class="flex items-center gap-sm">
-        <img src="assets\centryLogo_noBG.png" class="h-10 w-auto" alt="Centry Shield Logo">
+        <img src="assets/centryLogo_noBG.png" class="h-10 w-auto" alt="Centry Shield Logo">
         <div class="flex flex-col">
             <span class="font-headline-md text-headline-md font-bold text-primary tracking-tight">Centry</span>
             <span class="font-label-sm text-label-sm text-on-surface-variant hidden md:block opacity-70">Cybersecurity for the backbone of the Philippine economy</span>
@@ -104,7 +131,7 @@
             <div class="mb-10 w-full max-w-lg">
                 <label class="block font-mono text-xs text-on-surface-variant uppercase tracking-wider mb-2">Business Email Address <span class="text-error">*</span></label>
                 <div class="relative">
-                    <input class="w-full bg-surface-container-lowest border border-outline-variant/50 rounded-lg px-4 py-3 pr-10 text-on-surface focus:outline-none input-glow transition-all font-body" placeholder="admin@enterprise.com" type="email">
+                    <input class="w-full bg-surface-container-lowest border border-outline-variant/50 rounded-lg px-4 py-3 pr-10 text-on-surface focus:outline-none input-glow transition-all font-body" placeholder="admin@enterprise.com" type="email" id="userEmail" required>
                     <div class="absolute right-3 top-1/2 -translate-y-1/2 flex items-center pointer-events-none">
                         <span class="material-symbols-outlined text-outline">alternate_email</span>
                     </div>
@@ -128,7 +155,7 @@
                             </div>
                             <span class="font-body text-lg font-semibold text-on-surface">Shopee</span>
                         </div>
-                        <button class="px-6 py-2.5 bg-primary-container text-primary font-bold font-headline rounded-lg border border-primary/30 shadow-[0_0_10px_rgba(32,38,130,0.3)] hover:bg-primary-container/80 transition-all active:scale-95 flex items-center gap-2 submit-glow">
+                        <button class="px-6 py-2.5 bg-primary-container text-primary font-bold font-headline rounded-lg border border-primary/30 shadow-[0_0_10px_rgba(32,38,130,0.3)] hover:bg-primary-container/80 transition-all active:scale-95 flex items-center gap-2 submit-glow" id="connectShopee" data-name="Shopee" disabled>
                             <span>Connect</span>
                             <span class="material-symbols-outlined text-sm">arrow_forward</span>
                         </button>
@@ -142,7 +169,7 @@
                             </div>
                             <span class="font-body text-lg font-semibold text-on-surface">Lazada</span>
                         </div>
-                        <button class="px-6 py-2.5 bg-primary-container text-primary font-bold font-headline rounded-lg border border-primary/30 shadow-[0_0_10px_rgba(32,38,130,0.3)] hover:bg-primary-container/80 transition-all active:scale-95 flex items-center gap-2 submit-glow">
+                        <button class="px-6 py-2.5 bg-primary-container text-primary font-bold font-headline rounded-lg border border-primary/30 shadow-[0_0_10px_rgba(32,38,130,0.3)] hover:bg-primary-container/80 transition-all active:scale-95 flex items-center gap-2 submit-glow" id="connectLazada" data-name="Lazada" disabled>
                             <span>Connect</span>
                             <span class="material-symbols-outlined text-sm">arrow_forward</span>
                         </button>
@@ -156,7 +183,7 @@
                             </div>
                             <span class="font-body text-lg font-semibold text-on-surface">Temu</span>
                         </div>
-                        <button class="px-6 py-2.5 bg-primary-container text-primary font-bold font-headline rounded-lg border border-primary/30 shadow-[0_0_10px_rgba(32,38,130,0.3)] hover:bg-primary-container/80 transition-all active:scale-95 flex items-center gap-2 submit-glow">
+                        <button class="px-6 py-2.5 bg-primary-container text-primary font-bold font-headline rounded-lg border border-primary/30 shadow-[0_0_10px_rgba(32,38,130,0.3)] hover:bg-primary-container/80 transition-all active:scale-95 flex items-center gap-2 submit-glow" id="connectTemu" data-name="Temu" disabled>
                             <span>Connect</span>
                             <span class="material-symbols-outlined text-sm">arrow_forward</span>
                         </button>
@@ -170,7 +197,7 @@
                             </div>
                             <span class="font-body text-lg font-semibold text-on-surface">Shein</span>
                         </div>
-                        <button class="px-6 py-2.5 bg-primary-container text-primary font-bold font-headline rounded-lg border border-primary/30 shadow-[0_0_10px_rgba(32,38,130,0.3)] hover:bg-primary-container/80 transition-all active:scale-95 flex items-center gap-2 submit-glow">
+                        <button class="px-6 py-2.5 bg-primary-container text-primary font-bold font-headline rounded-lg border border-primary/30 shadow-[0_0_10px_rgba(32,38,130,0.3)] hover:bg-primary-container/80 transition-all active:scale-95 flex items-center gap-2 submit-glow" id="connectShein" data-name="Shein" disabled>
                             <span>Connect</span>
                             <span class="material-symbols-outlined text-sm">arrow_forward</span>
                         </button>
@@ -184,7 +211,7 @@
                             </div>
                             <span class="font-body text-lg font-semibold text-on-surface">TikTok Shop</span>
                         </div>
-                        <button class="px-6 py-2.5 bg-primary-container text-primary font-bold font-headline rounded-lg border border-primary/30 shadow-[0_0_10px_rgba(32,38,130,0.3)] hover:bg-primary-container/80 transition-all active:scale-95 flex items-center gap-2 submit-glow">
+                        <button class="px-6 py-2.5 bg-primary-container text-primary font-bold font-headline rounded-lg border border-primary/30 shadow-[0_0_10px_rgba(32,38,130,0.3)] hover:bg-primary-container/80 transition-all active:scale-95 flex items-center gap-2 submit-glow" id="connectTikTok" data-name="TikTok Shop" disabled>
                             <span>Connect</span>
                             <span class="material-symbols-outlined text-sm">arrow_forward</span>
                         </button>
@@ -226,6 +253,92 @@
         <a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors duration-200" href="#">Cookie Policy</a>
     </div>
 </footer>
+
+<script>
+    // Represents a single marketplace connect button: owns its own
+    // state (disconnected / connecting / connected) and re-renders itself.
+    class Marketplace {
+        constructor(buttonId) {
+            this.button = document.getElementById(buttonId);
+            this.name = this.button.dataset.name; // read name from data-name instead of hardcoding
+            this.status = "disconnected";
+            this.button.addEventListener("click", this.handleClick.bind(this));
+        }
+
+        handleClick() {
+            if (this.status !== "disconnected") return; // ignore mid-animation / already-connected clicks
+            this.status = "connecting";
+            this.render();
+
+            // TODO: replace with a real async connection call.
+            // Assuming success for now, per current requirements.
+            setTimeout(() => {
+                this.status = "connected";
+                this.render();
+            }, 2000);
+        }
+
+        // Enable/disable this button based on whether the email input is valid.
+        // Only takes effect while still disconnected — a connecting/connected
+        // button should never be re-disabled by editing the email afterwards.
+        setEnabled(enabled) {
+            if (this.status === "disconnected") {
+                this.button.disabled = !enabled;
+            }
+        }
+
+        render() {
+            // Remove previous state classes
+            this.button.classList.remove("connecting", "bg-green-600", "border-green-400");
+
+            if (this.status === "connecting") {
+                this.button.disabled = true;
+                this.button.classList.add("connecting");
+                this.button.innerHTML = `<span class="material-symbols-outlined animate-spin">sync</span> Connecting...`;
+            } else if (this.status === "connected") {
+                this.button.disabled = true; // Disable connected buttons
+                this.button.classList.add("bg-green-600", "border-green-400");
+                this.button.innerHTML = `Connected <span class="material-symbols-outlined">check_circle</span>`;
+            } else {
+                // Disconnected state
+                this.button.disabled = false;
+                this.button.innerHTML = `Connect`;
+            }
+        }
+    }
+
+    // Watches the email textarea and enables/disables every registered
+    // Marketplace button based on whether it currently holds a valid email.
+    class ConnectionManager {
+        constructor(emailInputId, marketplaces) {
+            this.emailInput = document.getElementById(emailInputId);
+            this.marketplaces = marketplaces;
+            this.emailInput.addEventListener("input", this.validate.bind(this));
+            this.validate(); // run once on load in case of a pre-filled value
+        }
+
+        isValidEmail(value) {
+            // simple, good-enough pattern — swap for a stricter regex if you need one
+            return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value.trim());
+        }
+
+        validate() {
+            const enabled = this.isValidEmail(this.emailInput.value);
+            this.marketplaces.forEach((m) => m.setEnabled(enabled));
+        }
+    }
+
+    // One instance per button — no more copy-pasted listeners.
+    const marketplaces = [
+        new Marketplace("connectShopee"), // Fixed ID typo
+        new Marketplace("connectLazada"),
+        new Marketplace("connectTemu"),
+        new Marketplace("connectShein"),
+        new Marketplace("connectTikTok"),
+    ];
+
+    new ConnectionManager("userEmail", marketplaces);
+</script>
 
 </body>
 </html>

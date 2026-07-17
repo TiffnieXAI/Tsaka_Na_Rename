@@ -252,10 +252,12 @@
             e.preventDefault();
             submitBtn.innerHTML = '<span class="material-symbols-outlined animate-spin">sync</span> VALIDATING...';
             setTimeout(() => {
+
+                // TODO: Implement actual authentication logic here. For now, we simulate a successful login.
+                
                 submitBtn.innerHTML = 'WELCOME  <span class="material-symbols-outlined">check_circle</span>';
                 submitBtn.classList.remove('bg-primary-container');
                 submitBtn.classList.add('bg-green-600', 'border-green-400');
-                //window.location.href="dashboard.html";
             }, 1500);
             setTimeout(() => {
                 window.location.href="dashboard.html";
